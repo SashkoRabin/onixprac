@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root {
+  font-family: 'Poppins', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+  margin: 15px auto;
+  width: 95%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar__linkItem {
+  text-decoration: none;
+  margin: 0 20px;
+  color: #000;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background: transparent;
+  transition: all 0.5s;
+  z-index: 1;
+  position: relative;
+  padding: 0 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.linkItem:hover {
+  color: #8a8789;
+  transition: 0.2s;
+  text-shadow: #000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar__linkItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background-color: rgb(80, 78, 78);
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.navbar__linkItem:hover::before {
+  width: 100%;
+}
+
+.navbar__linkItem:hover {
+  color: rgb(216, 215, 215);
+}
+
+.navbar__linkItem:active:before {
+  background: #000;
 }

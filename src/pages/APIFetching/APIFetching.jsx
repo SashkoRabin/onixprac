@@ -5,9 +5,10 @@ import Loader from '../../components/Loader/Loader';
 import axios from 'axios';
 import { useFetching } from '../../components/utils/useFetching';
 import { useState } from 'react';
-import cl from '../../components/MyButton/MyButton.module.css';
+import buttonCl from '../../components/MyButton/MyButton.module.css';
 import '../../App.css';
 import AnotherNavBar from '../../components/AnotherNavBar/AnotherNavBar';
+import pageCl from './APIFetching.module.css';
 
 const APIFetching = () => {
   const [dataArray, setDataArray] = useState([]);
@@ -28,12 +29,12 @@ const APIFetching = () => {
     <div className="fetch">
       <NavBar />
       <AnotherNavBar />
-      <button className={cl.btn} onClick={fetchData}>
+      <button className={buttonCl.btn} onClick={fetchData}>
         Загрузить данные
       </button>
       {dataError && <h1>Произошла ошибка {dataError}</h1>}
       {isLoading ? (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className={pageCl.loaderWrapper}>
           <Loader />
         </div>
       ) : (

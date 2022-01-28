@@ -1,13 +1,14 @@
 import React from 'react';
 import DataItem from '../DataItem/DataItem';
+import cl from './DataList.module.css';
 
 const DataList = ({ dataArray }) => {
   if (!dataArray.length) {
-    return <h1 style={{ textAlign: 'center' }}>Пока что данных нет</h1>;
+    return <h1 className={cl.aboutData}>Пока что данных нет</h1>;
   }
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Загруженные данные</h1>
+      <h1 className={cl.aboutData}>Загруженные данные</h1>
       {dataArray.map((data) => (
         <DataItem data={data} key={data.id} />
       ))}

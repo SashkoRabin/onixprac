@@ -1,13 +1,13 @@
 import React from 'react';
-import NavBar from '../NavBar/NavBar';
+import NavBar from '../../components/NavBar/NavBar';
 import DataList from './components/DataList/DataList';
-import Loader from './components/Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 import axios from 'axios';
 import { useFetching } from './useFetching';
 import { useState } from 'react';
 import cl from './components/MyButton/MyButton.module.css';
 import '../../App.css';
-import AnotherNavBar from '../NavBar/AnotherNavBar';
+import AnotherNavBar from '../../components/AnotherNavBar/AnotherNavBar';
 
 const APIFetching = () => {
   const [dataArray, setDataArray] = useState([]);

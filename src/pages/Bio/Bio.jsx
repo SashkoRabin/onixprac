@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Information from './components/Information/Information';
-import NavBar from '../NavBar/NavBar';
+import NavBar from '../../components/NavBar/NavBar';
 import '../../App.css';
 import './Bio.styles.css';
 

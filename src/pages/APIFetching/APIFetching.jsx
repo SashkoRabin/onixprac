@@ -1,9 +1,9 @@
 import React from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import DataList from './components/DataList/DataList';
-import Loader from '../../components/Loader/Loaderader';
+import Loader from '../../components/Loader/Loader';
 import axios from 'axios';
-import { useFetching } from './useFetching';
+import { useFetching } from '../../components/utils/useFetching';
 import { useState } from 'react';
 import cl from '../../components/MyButton/MyButton.module.css';
 import '../../App.css';

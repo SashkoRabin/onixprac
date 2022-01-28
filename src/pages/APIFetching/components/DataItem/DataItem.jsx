@@ -1,14 +1,14 @@
 import React from 'react';
 import cl from './DataItem.module.css';
 
-const DataItem = (props) => {
+const DataItem = ({ data }) => {
   return (
     <div className={cl.data}>
       <div className={cl.data__content}>
         <strong>
-          {props.data.id}. {props.data.title}
+          {data.id}. {data.title}
         </strong>
-        <div>{props.data.body}</div>
+        <div>{data.body}</div>
       </div>
     </div>
   );

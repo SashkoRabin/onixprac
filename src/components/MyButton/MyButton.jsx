@@ -1,8 +1,8 @@
 import React from 'react';
 import cl from './MyButton.module.css';
 
-const MyButton = () => {
-  return <button className={cl.btn}>НАЖМИ НА МЕНЯ</button>;
+const MyButton = ({ children }) => {
+  return <button className={cl.btn}>{children}</button>;
 };
 
 export default MyButton;

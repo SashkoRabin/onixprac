@@ -1,11 +1,11 @@
 import React from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import DataList from './components/DataList/DataList';
-import Loader from '../../components/Loader/Loader';
+import Loader from '../../components/Loader/Loaderader';
 import axios from 'axios';
 import { useFetching } from './useFetching';
 import { useState } from 'react';
-import cl from './components/MyButton/MyButton.module.css';
+import cl from '../../components/MyButton/MyButton.module.css';
 import '../../App.css';
 import AnotherNavBar from '../../components/AnotherNavBar/AnotherNavBar';
 

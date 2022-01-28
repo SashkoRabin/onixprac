@@ -4,16 +4,17 @@ import Footer from './components/Footer/Footer';
 import Information from './components/Information/Information';
 import NavBar from '../../components/NavBar/NavBar';
 import '../../App.css';
-import './Bio.styles.css';
 
-const Bio = () => {
-  if (localStorage.getItem('theme') !== null) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
+const Bio = ({ theme, themeToggler, mountedComponent }) => {
+  if (!mountedComponent) return <div />;
   return (
     <div className="bio">
       <NavBar />
-      <Header />
+      <Header
+        theme={theme}
+        themeToggler={themeToggler}
+        mountedComponent={mountedComponent}
+      />
       <Information />
       <Footer />
     </div>

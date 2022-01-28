@@ -3,7 +3,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import DataList from './components/DataList/DataList';
 import Loader from '../../components/Loader/Loader';
 import axios from 'axios';
-import { useFetching } from '../../components/utils/useFetching';
+import { useFetching } from '../../components/utils/myHooks/useFetching';
 import { useState } from 'react';
 import buttonCl from '../../components/MyButton/MyButton.module.css';
 import '../../App.css';

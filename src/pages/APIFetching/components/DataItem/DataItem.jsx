@@ -1,5 +1,6 @@
 import React from 'react';
 import cl from './DataItem.module.css';
+import PropTypes from 'prop-types';
 
 const DataItem = ({ data }) => {
   return (
@@ -12,6 +13,13 @@ const DataItem = ({ data }) => {
       </div>
     </div>
   );
+};
+
+DataItem.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default DataItem;

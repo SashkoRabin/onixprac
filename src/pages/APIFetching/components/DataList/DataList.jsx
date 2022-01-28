@@ -1,6 +1,7 @@
 import React from 'react';
 import DataItem from '../DataItem/DataItem';
 import cl from './DataList.module.css';
+import PropTypes from 'prop-types';
 
 const DataList = ({ dataArray }) => {
   if (!dataArray.length) {
@@ -14,6 +15,10 @@ const DataList = ({ dataArray }) => {
       ))}
     </div>
   );
+};
+
+DataList.propTypes = {
+  dataArray: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)),
 };
 
 export default DataList;

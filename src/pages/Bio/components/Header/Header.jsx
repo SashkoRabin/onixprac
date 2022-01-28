@@ -1,6 +1,7 @@
 import React from 'react';
 import AnotherNavBar from '../../../../components/AnotherNavBar/AnotherNavBar';
 import Toggle from '../../../../components/utils/Theme/Toggler';
+import PropTypes from 'prop-types';
 
 const Header = ({ theme, themeToggler }) => {
   return (
@@ -23,6 +24,11 @@ const Header = ({ theme, themeToggler }) => {
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  theme: PropTypes.string.isRequired,
+  themeToggler: PropTypes.func.isRequired,
 };
 
 export default Header;

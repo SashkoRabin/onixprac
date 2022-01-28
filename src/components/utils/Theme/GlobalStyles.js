@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
 .bio__footer {
     height: 100px;
     width: 95%;
-    background: '${(props) => props.theme.headerfooterbg}';
+    background: ${(props) => props.theme.headerfooterbg};
     margin: 30px auto 0 auto;
 }
 .bio__header {

@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import Information from './components/Information/Information';
 import NavBar from '../../components/NavBar/NavBar';
 import '../../App.css';
+import PropTypes from 'prop-types';
 
 const Bio = ({ theme, themeToggler, mountedComponent }) => {
   if (!mountedComponent) return <div />;
@@ -19,6 +20,12 @@ const Bio = ({ theme, themeToggler, mountedComponent }) => {
       <Footer />
     </div>
   );
+};
+
+Bio.propTypes = {
+  theme: PropTypes.string.isRequired,
+  themeToggler: PropTypes.func.isRequired,
+  mountedComponent: PropTypes.bool.isRequired,
 };
 
 export default Bio;

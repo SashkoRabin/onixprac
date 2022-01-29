@@ -41,7 +41,7 @@ const APIFetching = () => {
     setTotalPages(getPageCount(totalCount, limit));
   });
 
-  useObserver(lastElement, page < totalPages, clicked, isLoading, () => {
+  useObserver(lastElement, page <= totalPages, clicked, isLoading, () => {
     setPage(page + 1);
     fetchData();
   });

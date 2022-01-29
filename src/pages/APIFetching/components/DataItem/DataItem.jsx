@@ -19,6 +19,7 @@ DataItem.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
   }).isRequired,
 };
 

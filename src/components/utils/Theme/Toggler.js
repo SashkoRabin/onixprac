@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Toggle = ({ theme, toggleTheme }) => {
+const Toggle = ({ toggleTheme }) => {
   return (
     <button id="toggleTheme" onClick={toggleTheme}>
       T
@@ -10,7 +10,6 @@ const Toggle = ({ theme, toggleTheme }) => {
 };
 
 Toggle.propTypes = {
-  theme: PropTypes.string.isRequired,
   toggleTheme: PropTypes.func.isRequired,
 };
 

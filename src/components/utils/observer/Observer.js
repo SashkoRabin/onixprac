@@ -1,19 +1,20 @@
 /* eslint-disable no-unused-vars */
 import { useRef, useEffect } from 'react';
 
-export const useObserver = (ref, canLoad, isLoading, callback) => {
+export const useObserver = (ref, canLoad, clicked, isLoading, callback) => {
   const observer = useRef();
-
   useEffect(() => {
     if (isLoading) return;
     if (observer.current) observer.current.disconnect();
-
-    const cb = function (entries, observer) {
+    let cb;
+    cb = (entries, observer) => {
       if (entries[0].isIntersecting && canLoad) {
         callback();
       }
     };
-    observer.current = new IntersectionObserver(cb);
-    observer.current.observe(ref.current);
-  }, [isLoading]);
+    if (clicked) {
+      observer.current = new IntersectionObserver(cb);
+      observer.current.observe(ref.current);
+    }
+  }, [isLoading, clicked]);
 };

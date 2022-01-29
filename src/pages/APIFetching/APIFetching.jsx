@@ -18,6 +18,7 @@ const APIFetching = () => {
   const [totalPages, setTotalPages] = useState(10);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
+  const [clicked, setClicked] = useState(false);
   const lastElement = useRef();
 
   const getAll = async () => {
@@ -30,7 +31,6 @@ const APIFetching = () => {
         },
       }
     );
-    console.log(page);
     return response;
   };
 
@@ -41,16 +41,21 @@ const APIFetching = () => {
     setTotalPages(getPageCount(totalCount, limit));
   });
 
-  useObserver(lastElement, page < totalPages, isLoading, () => {
+  useObserver(lastElement, page < totalPages, clicked, isLoading, () => {
     setPage(page + 1);
-    console.log('отработала');
     fetchData();
   });
+
+  const renderData = () => {
+    setClicked(true);
+  };
   return (
     <div className="fetch">
       <NavBar />
       <AnotherNavBar />
-      <button className={buttonCl.btn}>Загрузить данные</button>
+      <button className={buttonCl.btn} onClick={renderData}>
+        Загрузить данные
+      </button>
 
       {dataError && <h1>Произошла ошибка {dataError}</h1>}
       <DataList dataArray={dataArray} />

@@ -1,4 +1,7 @@
 .loaderWrapper {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+.data__footer {
+  height: 20px;
 }

@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Information from './components/Information/Information';
 import NavBar from '../../components/NavBar/NavBar';
 import '../../App.css';
-import PropTypes from 'prop-types';
+import { MyThemeContext } from '../../components/utils/context/contextIndex';
 
-const Bio = ({ theme, themeToggler, mountedComponent }) => {
+const Bio = () => {
+  const { theme, themeToggler, mountedComponent } = useContext(MyThemeContext);
   if (!mountedComponent) return <div />;
   return (
     <div className="bio">
@@ -20,12 +21,6 @@ const Bio = ({ theme, themeToggler, mountedComponent }) => {
       <Footer />
     </div>
   );
-};
-
-Bio.propTypes = {
-  theme: PropTypes.string.isRequired,
-  themeToggler: PropTypes.func.isRequired,
-  mountedComponent: PropTypes.bool.isRequired,
 };
 
 export default Bio;

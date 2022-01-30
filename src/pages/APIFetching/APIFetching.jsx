@@ -20,6 +20,7 @@ const APIFetching = () => {
   const [page, setPage] = useState(1);
   const [clicked, setClicked] = useState(false);
   const lastElement = useRef();
+  const [checked, setChecked] = useState(false);
 
   const getAll = async () => {
     const response = await axios.get(
@@ -52,7 +53,7 @@ const APIFetching = () => {
   return (
     <div className="fetch">
       <NavBar />
-      <AnotherNavBar />
+      <AnotherNavBar checked={checked} setChecked={setChecked} />
       <button className={buttonCl.btn} onClick={renderData}>
         Загрузить данные
       </button>

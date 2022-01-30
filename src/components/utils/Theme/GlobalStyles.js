@@ -108,6 +108,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 11px;
     cursor: pointer;
     font-weight: 700;
+    z-index: 50;
   }
   
   .navbar {
@@ -162,60 +163,113 @@ export const GlobalStyles = createGlobalStyle`
     background: ${(props) => props.theme.linkitemcolor};
   }
   
-  .menu {
+  .anav__container {
+    width: 107%;
+    margin: 0 auto;
+    display:block;
+    position: relative;
+    height: 60px;
+  }
+  .anav {
     display: none;
     position: absolute;
+    width: 107%;
     left: 0;
     top: 0;
-    margin: 10px;
   }
-  .menu li {
+  .anav .anav__menu-items {
+    display:flex;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .anav__container li {
     list-style: none;
-    position: relative;
   }
-  .menu__link {
-    font-size: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: 700;
-    color: rgb(219, 218, 218);
+  .anav__container a {
+     text-decoration: none;  
+     color: rgb(90, 90, 90);
+     font-weight: 700;
+     font-size: 1.3rem;
+     padding: 0.7rem;
   }
-  
-  .sub-menu__list a {
-    text-decoration: none;
-    color: rgb(27, 27, 27);
-    padding-top: 5px;
-    padding-left: 3px;
-    font-weight: 700;
-  }
-  .sub-menu__list li {
-    border-radius: 5px;
-  }
-  
-  .sub-menu__list a:hover {
-    color: rgb(68, 66, 66);
-    transition: 0.2s;
-  }
-  
-  .sub-menu__list {
-    display: none;
+  .anav__container .anav__checkbox {
     position: absolute;
-    width: 140px;
-    text-align: left;
-    top: 10px;
-    left: 0;
-    padding-top: 15px;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
     cursor: pointer;
   }
-  .sub-menu__link {
+  .anav__container .anav__hamburger_lines {
+    height: 26px;
+    width: 32px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .anav__container .anav__hamburger_lines .line {
     display: block;
-    background: rgba(255, 255, 255, 0.5);
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #c4c3c3;
+  }
+  .anav__container .anav__hamburger_lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+  }
+  .anav__container .anav__hamburger_lines .line2 {
+    transition: transform 0.2s ease-in-out;
+  }
+  .anav__container .anav__hamburger_lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+  }
+  .anav__container .anav__menu-items {
+    padding-top: 120px;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.9);
+    height: 100vh;
+    width: 100%;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: column;
+    margin-left: -40px;
+    padding-left: 50px;
+    transition: transform 0.5s ease-in-out;
+  }
+  .anav .anav__menu-items li {
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-right: 50px;
+  }
+  .anav__menu-items a:hover {
+    color: #0e2431;
+    transition: 0.2s;
+    text-shadow: #000;
+  }
+  .anav__container input[type="checkbox"]:checked ~ .anav__menu-items {
+    transform: translateX(0);
+  }
+  .anav__container input[type="checkbox"]:checked ~ .anav__hamburger_lines .line1 {
+    transform: rotate(45deg);
+  }
+  .anav__container input[type="checkbox"]:checked ~ .anav__hamburger_lines .line2 {
+    transform: scaleY(0);
+  }
+  .anav__container input[type="checkbox"]:checked ~ .anav__hamburger_lines .line3 {
+    transform: rotate(-45deg);
   }
   
-  .menu__list:hover .sub-menu__list {
-    display: block;
-  }
-  
+
   @media (max-width: 600px) {
     .bio__header_info > h4 {
       display: none;
@@ -236,7 +290,7 @@ export const GlobalStyles = createGlobalStyle`
     .navbar {
       display: none;
     }
-    .menu {
+    .anav {
       display: block;
     }
   }

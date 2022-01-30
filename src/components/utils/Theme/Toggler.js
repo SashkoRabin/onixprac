@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Toggle = ({ toggleTheme }) => {
   return (
-    <button id="toggleTheme" onClick={toggleTheme}>
+    <button className="button-toggle" id="toggleTheme" onClick={toggleTheme}>
       T
     </button>
   );

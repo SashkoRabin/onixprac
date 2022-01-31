@@ -32,6 +32,9 @@ const AnotherNavBar = ({ checked, setChecked }) => {
               <Link to="/api">API запросы</Link>
             </li>
             <li>
+              <Link to="/jira">Jira TODO</Link>
+            </li>
+            <li>
               <a target="_blank" rel="noreferrer" href="https://t.me/rabingym">
                 Мой телеграм
               </a>

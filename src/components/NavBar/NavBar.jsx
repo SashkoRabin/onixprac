@@ -10,6 +10,9 @@ const NavBar = () => {
       <Link className="navbar__linkItem" to="/api">
         API запросы
       </Link>
+      <Link className="navbar__linkItem" to="/jira">
+        Jira TODO
+      </Link>
       <a
         className="navbar__linkItem"
         target="_blank"

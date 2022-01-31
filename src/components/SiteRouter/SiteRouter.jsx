@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import APIFetching from '../../pages/APIFetching/APIFetching';
 import Bio from '../../pages/Bio/Bio';
+import APIFetching from '../../pages/APIFetching/APIFetching';
 import Jira from '../../pages/Jira/Jira';
 
 const SiteRouter = () => {

@@ -1,0 +1,42 @@
+.board__title {
+  font-weight: 700;
+  margin: 30px;
+}
+
+.board__container {
+  display: flex;
+  justify-content: first baseline;
+  border: 1px solid black;
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 400px;
+}
+
+.board__card {
+  margin: 10px 20px;
+  padding: 10px;
+  width: 300px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.board__card > a {
+  display: flex;
+  justify-content: right;
+}
+
+.board__col {
+  width: 450px;
+  margin-right: 60px;
+  margin-left: 20px;
+  background: rgb(245, 219, 219);
+}
+
+.col__title {
+  font-weight: 700;
+}
+.loaderWrapper {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+}

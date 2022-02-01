@@ -1,12 +1,13 @@
 .board__title {
   font-weight: 700;
   margin: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .board__container {
   display: flex;
   justify-content: first baseline;
-  border: 1px solid black;
   width: 95%;
   margin: 0 auto;
   padding: 20px;
@@ -23,20 +24,34 @@
 .board__card > a {
   display: flex;
   justify-content: right;
+  align-items: center;
 }
 
 .board__col {
   width: 450px;
-  margin-right: 60px;
+  margin-right: 50px;
   margin-left: 20px;
   background: rgb(245, 219, 219);
+  box-sizing: border-box;
 }
 
 .col__title {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
   font-weight: 700;
 }
 .loaderWrapper {
   margin: 30px;
   display: flex;
   justify-content: center;
+}
+
+.user__avatar {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  margin: 15px 5px 10px 10px;
 }

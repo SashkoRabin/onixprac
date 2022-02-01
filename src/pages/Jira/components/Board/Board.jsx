@@ -1,72 +1,59 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cl from './Board.module.css';
-import axios from 'axios';
 import { useFetching } from '../../../../components/utils/myHooks/useFetching';
 import Loader from '../../../../components/Loader/Loader';
 import CardList from '../CardList/CardList';
+import APIService from '../../../../components/utils/API/APIService';
 
 const Board = () => {
   const [dataArray, setDataArray] = useState([]);
-  let todoArray = useRef([]);
-  let processingArray = useRef([]);
-  let doneArray = useRef([]);
-
-  const getAll = async () => {
-    const response = await axios.get(
-      'https://jsonplaceholder.typicode.com/todos',
-      {
-        params: {
-          _limit: 40,
-        },
-      }
-    );
-    return response;
-  };
+  const [userArray, setUserArray] = useState([]);
+  let [todoArray, setTodoArray] = useState([]);
+  let [processingArray, setProcessingArray] = useState([]);
+  let [doneArray, setDoneArray] = useState([]);
 
   const [fetchData, isLoading, dataError] = useFetching(async () => {
-    const response = await getAll();
-    setDataArray(
-      response.data.map((item) => (item = { ...item, status: 'TODO' }))
-    );
+    const response = await APIService.getAll(40, `todos`);
+    const responseUser = await APIService.getAll(40, `users`);
+    setUserArray(responseUser);
+    setDataArray(response.map((item) => (item = { ...item, status: 'TODO' })));
   });
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  const todoHandler = () => {
-    todoArray.current = dataArray.filter((item) => item.status == 'TODO');
-    console.log(todoArray.current);
-  };
-  const processingHandler = () => {
-    processingArray.current = dataArray.filter(
-      (item) => item.status === 'PROCESSING'
+  const arraysHandler = () => {
+    setTodoArray(() => dataArray.filter((item) => item.status === 'TODO'));
+    setProcessingArray(() =>
+      dataArray.filter((item) => item.status === 'PROCESSING')
     );
-  };
-  const doneHandler = () => {
-    doneArray.current = dataArray.filter((item) => item.status == 'DONE');
+    setDoneArray(() => dataArray.filter((item) => item.status == 'DONE'));
   };
 
   useEffect(() => {
-    todoHandler();
-    processingHandler();
-    doneHandler();
+    arraysHandler();
   }, [dataArray]);
 
   const changeStatus = (item) => {
-    if (item.status == 'TODO') {
-      item.status = 'PROCESSING';
-    } else if (item.status == 'PROCESSING') {
-      item.status = 'DONE';
+    let i = -1;
+    dataArray.map((dataItem, index) => {
+      if (dataItem.id === item.id) i = index;
+    });
+
+    if (i >= 0) {
+      if (dataArray[i].status == 'TODO') {
+        setDataArray((prev) => {
+          prev[i].status = 'PROCESSING';
+          return [...prev];
+        });
+      } else if (dataArray[i].status == 'PROCESSING') {
+        setDataArray((prev) => {
+          prev[i].status = 'DONE';
+          return [...prev];
+        });
+      }
     }
-
-    setDataArray((prev) =>
-      prev.map((i) => {
-        if (i.id === item.id) i = item;
-      })
-    );
-
-    console.log(dataArray);
   };
 
   if (isLoading)
@@ -82,19 +69,22 @@ const Board = () => {
       <div className={cl.board__container}>
         {dataError && <h1>Произошла ошибка...</h1>}
         <CardList
-          array={todoArray.current}
+          array={todoArray}
           title="Todo"
           onClick={changeStatus}
+          userArr={userArray}
         />
         <CardList
-          array={processingArray.current}
+          array={processingArray}
           title="Processing"
           onClick={changeStatus}
+          userArr={userArray}
         />
         <CardList
-          array={doneArray.current}
+          array={doneArray}
           title="Done"
           onClick={changeStatus}
+          userArr={userArray}
         />
       </div>
     </>

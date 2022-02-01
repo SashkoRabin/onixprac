@@ -15,9 +15,9 @@
 }
 
 .board__card {
-  margin: 10px 20px;
+  margin: 10px;
   padding: 10px;
-  width: 300px;
+  width: 95%;
   box-sizing: border-box;
   background: #fff;
 }
@@ -28,7 +28,7 @@
 }
 
 .board__col {
-  width: 450px;
+  min-width: 25%;
   margin-right: 50px;
   margin-left: 20px;
   background: rgb(245, 219, 219);
@@ -40,6 +40,7 @@
   justify-content: center;
   margin: 10px 0;
   font-weight: 700;
+  font-size: 2vw;
 }
 .loaderWrapper {
   margin: 30px;
@@ -54,4 +55,64 @@
   border-radius: 15px;
   text-align: center;
   margin: 15px 5px 10px 10px;
+}
+
+@media (max-width: 800px) {
+  .board__container {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px 5px;
+    min-height: 400px;
+  }
+
+  .board__card {
+    margin: 5px 3px;
+    width: 95%;
+    box-sizing: border-box;
+    background: #fff;
+  }
+  .board__card p {
+    font-size: 12px;
+  }
+  .board__card h3 {
+    font-size: 12px;
+    margin: 5px 0;
+  }
+  .board__card h5 {
+    font-size: 10px;
+  }
+  .board__card br {
+    display: none;
+  }
+  .board__card > a {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+
+  .board__col {
+    min-width: 25%;
+    background: rgb(245, 219, 219);
+    box-sizing: border-box;
+    margin-left: 1px;
+  }
+
+  .col__title {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .loaderWrapper {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .user__avatar {
+    display: none;
+  }
 }

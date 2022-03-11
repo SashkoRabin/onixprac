@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/onixprac/static/css/main.685d14a5.css",
+    "main.js": "/onixprac/static/js/main.de0d5ac5.js",
+    "index.html": "/onixprac/index.html",
+    "main.685d14a5.css.map": "/onixprac/static/css/main.685d14a5.css.map",
+    "main.de0d5ac5.js.map": "/onixprac/static/js/main.de0d5ac5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.685d14a5.css",
+    "static/js/main.de0d5ac5.js"
+  ]
+}
